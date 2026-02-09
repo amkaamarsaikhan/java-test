@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Практик Шалгалт</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main-container">
+    <h1 id="modeTitle">Математик Тооцоолуур</h1>
+
+    <div class="toggle-container">
+        <button onclick="switchMode('calculator')" class="tab-btn">Тооцоолуур</button>
+        <button onclick="switchMode('currency')" class="tab-btn">Валют Хөрвүүлэгч</button>
+    </div>
+
+    <section id="math-container" data-active="true">
+        <div class="display">
+            <div id="mathExpression"></div>
+            <div id="mathResult">0</div>
+        </div>
+    </section>
+
+    <section id="currency-container" data-active="false">
+        <div class="converter-inputs">
+            <input type="number" id="amountInput" placeholder="Дүн оруулна уу">
+            <div class="selectors">
+                <select id="fromCurrency">
+                    <option value="MNT">MNT</option>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                </select>
+                <span>→</span>
+                <select id="toCurrency">
+                    <option value="USD">USD</option>
+                    <option value="MNT">MNT</option>
+                    <option value="EUR">EUR</option>
+                </select>
+            </div>
+            <button onclick="convertCurrency()" class="convert-btn">Хөрвүүлэх</button>
+            <div id="conversionResult">Үр дүн: 0</div>
+        </div>
+    </section>
+
+    <div id="keypad">
+        <div class="grid">
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button class="operator" onclick="appendValue('/')">/</button>
+
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button class="operator" onclick="appendValue('*')">*</button>
+
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button class="operator" onclick="appendValue('-')">-</button>
+
+            <button class="clear" onclick="clearAll()">C</button>
+            <button onclick="appendValue('0')">0</button>
+            <button class="equal" onclick="calculateResult()">=</button>
+            <button class="operator" onclick="appendValue('+')">+</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
